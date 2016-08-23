@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Decrypt";
+}
+
+<form runat="server" style="padding-left: 2cm; padding-bottom: 2cm;">
+
+    <h3>Ciphertext</h3>
+
+    <textarea id="cipher" runat="server" cols="80" rows="20"></textarea>
+
+    <br />
+
+    <br />
+
+    <button Text="Decrypt" ID="decryptButton" OnClick="DecryptButton_Click" runat="server"></button>
+
+    <br />
+    <br />
+
+    <h3>Key</h3>
+    <textarea id="cipherkey" runat="server" cols="30" rows="1"></textarea>
+
+    <br />
+
+    <br />
+
+    <h3>Plaintext</h3>
+
+    <textarea id="plain" runat="server" cols="80" rows="20"></textarea>
+
+    <br />
+
+    <br />
+
+    <h3>Manual Swapping</h3>
+
+    Swap <input id="char1" runat="server" /> With <input id="char2" runat="server" />
+
+    <button id="swapButton" Text="Swap" OnClick="SwapButton_Click" runat="server"></button>
+
+    <br />
+
+    <div id="errorDiv" style="display:none;" runat="server">
+
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            Invalid Key or Swap Characters!
+        </div>
+
+        <br />
+
+    </div>
+
+</form>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Encrypt";
+}
+
+<form runat="server" style="padding-left: 2cm; padding-bottom: 2cm;">
+
+    <h3>Plaintext</h3>
+
+    <textarea id="plain" runat="server" cols="80" rows="20"></textarea>
+
+    <br />
+
+    <br />
+
+    <h3>Key</h3>
+    <textarea id="cipherkey" runat="server" cols="30" rows="1"></textarea>
+
+    <br />
+    <br />
+
+    <div id="errorDiv" style="display:none;" runat="server">
+
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            Invalid Key!
+        </div>
+
+        <br />
+        <br />
+
+    </div>
+
+    <button ID="EncryptButton" runat="server">Encrypt</button>
+
+    <br />
+    <br />
+
+    <h3>Ciphertext</h3>
+
+    <textarea id="cipher" runat="server" cols="80" rows="20"></textarea>
+
+</form>
