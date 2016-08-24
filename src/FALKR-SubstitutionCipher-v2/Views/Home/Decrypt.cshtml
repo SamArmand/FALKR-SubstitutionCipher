@@ -2,54 +2,52 @@
     ViewData["Title"] = "Decrypt";
 }
 
-<form runat="server" style="padding-left: 2cm; padding-bottom: 2cm;">
-
-    <h3>Ciphertext</h3>
-
-    <textarea id="cipher" runat="server" cols="80" rows="20"></textarea>
-
-    <br />
-
-    <br />
-
-    <button ID="decryptButton" OnClick="DecryptButton_Click" runat="server">Decrypt</button>
-
-    <br />
-    <br />
-
-    <h3>Key</h3>
-    <textarea id="cipherkey" runat="server" cols="30" rows="1"></textarea>
-
-    <br />
-
-    <br />
-
-    <h3>Plaintext</h3>
-
-    <textarea id="plain" runat="server" cols="80" rows="20"></textarea>
-
-    <br />
-
-    <br />
-
-    <h3>Manual Swapping</h3>
-
-    Swap <input id="char1" runat="server" /> With <input id="char2" runat="server" />
-
-    <button id="swapButton" OnClick="SwapButton_Click" runat="server">Swap</button>
-
-    <br />
-
-    <div id="errorDiv" style="display:none;" runat="server">
-
-        <div class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span>
-            Invalid Key or Swap Characters!
-        </div>
-
-        <br />
-
+<div class='row text-center'>
+    <div class='col-md-12 '> <!-- col-md-offset-1 // if u want them both alined-->
+        <header>
+            <h1>Decryption</h1>
+            <hr/> 
+        </header>
     </div>
+</div>
 
-</form>
+<div class='row'>
+    <div class='col-md-10 col-md-offset-1'>
+        <form runat="server">   <!--style="padding-left: 2cm; padding-bottom: 2cm;"-->
+
+            <h3>Ciphertext</h3>
+            <textarea id="cipher" runat="server" cols="80" rows="20"></textarea>
+            <br/>
+            <br/>
+
+            <button ID="decryptButton" OnClick="DecryptButton_Click" runat="server" class="btn btn-primary">Decrypt</button>
+            <br/>
+            <br/>
+
+            <h3>Key</h3>
+            <textarea id="cipherkey" runat="server" cols="80" rows="1"></textarea>
+            <br/>
+            <br/>
+
+            <h3>Plaintext</h3>
+            <textarea id="plain" runat="server" cols="80" rows="20"></textarea>
+            <br/>
+            <br/>
+
+            <h3>Manual Swapping</h3>
+            Swap <input id="char1" runat="server" /> With <input id="char2" runat="server" />
+            <button id="swapButton" OnClick="SwapButton_Click" runat="server" class="btn btn-primary">Swap</button>
+            <br/>
+
+            <div id="errorDiv" style="display:none;" runat="server">
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Invalid Key or Swap Characters!
+                </div>
+                <br/>
+            </div>
+
+        </form>
+    </div>
+</div>

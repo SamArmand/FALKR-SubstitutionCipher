@@ -2,41 +2,42 @@
     ViewData["Title"] = "About";
 }
 
-<div style="padding-left: 2cm; padding-right: 2cm;">
+<div class='row text-center'>
+    <div class='col-md-12 '> <!-- col-md-offset-1 // if u want them both alined-->
+        <header>
+            <h1>About FALKR</h1>
+            <hr/>
+        </header>
+    </div>
+</div>
 
-    <h2>About FALKR</h2>
+<div class='row'>
+    <div class='col-md-10 col-md-offset-1 text-justify'>
+<!--<div style="padding-left: 2cm; padding-bottom: 2cm;">-->
+        <p>
+            <strong>FALKR</strong> is a substitution cipher encryption/decryption tool developed by Jessica <strong>F</strong>alco, Sam <strong>A</strong>ssaf, Pinsonn <strong>L</strong>averdure, Mark <strong>K</strong>aranfil, and Anne <strong>R</strong>ahman.<br />
+        </p>
 
-    <br />
+        <p>
+            This tool was developed as a project for <strong>SOEN 321 - Information Systems Security</strong> at <strong>Concordia University</strong>. <br />
+        </p>
 
-    <p>
-        <strong>FALKR</strong> is a substitution cipher encryption/decryption tool developed by Jessica <strong>F</strong>alco, Sam <strong>A</strong>ssaf, Pinsonn <strong>L</strong>averdure, Mark <strong>K</strong>aranfil, and Anne <strong>R</strong>ahman.<br />
-    </p>
+        <p>
+            The decryption algorithm is a slightly modified version of Thomas Jakobsen's algorithm extended to include trigram analysis for higher accuracy. <br />
 
-    <p>
-        This tool was developed as a project for <strong>SOEN 321 - Information Systems Security</strong> at <strong>Concordia University</strong>. <br />
+            Upon studying Jakobsen's algorithm, we found that the algorithm only works when the digram frequency of the plaintext is very close to that of the language digram used for comparison.
 
-    </p>
+            Furthermore, we found a possible error in the algorithm. Although it may be attributed to misinterpretation of his instrstuctions.
+        </p>
 
-    <p>
-        The decryption algorithm is a slightly modified version of Thomas Jakobsen's algorithm extended to include trigram analysis for higher accuracy. <br />
+        <p>
+            Jakobsen's algorithm instructs us to pick <strong>alpha</strong> and <strong>beta</strong> and swapping those two characters in <strong>k'</strong>. <br />
 
-        Upon studying Jakobsen's algorithm, we found that the algorithm only works when the digram frequency of the plaintext is very close to that of the language digram used for comparison.
+            We modified this algorithm by first finding the characters in the alphabet, then recording their indices. We then swap the two symbols at those indices in <strong>k'</strong>.
 
-        Furthermore, we found a possible error in the algorithm. Although it may be attributed to misinterpretation of his instrstuctions.
+            We found this modified algorithm to be slightly more accurate than the original one although it was still insufficient. <br />
 
-
-    </p>
-
-    <p>
-        Jakobsen's algorithm instructs us to pick <strong>alpha</strong> and <strong>beta</strong> and swapping those two characters in <strong>k'</strong>. <br />
-
-        We modified this algorithm by first finding the characters in the alphabet, then recording their indices. We then swap the two symbols at those indices in <strong>k'</strong>.
-
-        We found this modified algorithm to be slightly more accurate than the original one although it was still insufficient. <br />
-
-        In order to get more accuracy, we repeated the entire algorithm using trigram analysis instead of digram, consequently swapping rows, columns, and depth of the 3-dimensional matrix instead of only rows and columns. <br />
-    </p>
-
-
-
+            In order to get more accuracy, we repeated the entire algorithm using trigram analysis instead of digram, consequently swapping rows, columns, and depth of the 3-dimensional matrix instead of only rows and columns. <br />
+        </p>
+    </div>
 </div>
