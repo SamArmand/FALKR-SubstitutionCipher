@@ -49,7 +49,7 @@ namespace FALKR_SubstitutionCipher_v2
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Encrypt}/{id?}");
+                    template: "{controller=Encrypt}/{action=Index}/{id?}");
             });
         }
     }

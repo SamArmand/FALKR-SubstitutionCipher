@@ -1,18 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FALKR_SubstitutionCipher_v2.Controllers
 {
-    public class HomeController : Controller
+    public class DecryptController : Controller
     {
 
-        public IActionResult About()
+        public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult Decrypt()
         {
-            return View();
+            return View("Index");
         }
+
     }
 }
