@@ -13,36 +13,29 @@
 
 <div class='row'>
     <div class='col-md-10 col-md-offset-1'>
-        <form runat="server">
+        
+        @model EncryptModel
+        <form asp-controller="Encrypt" asp-action="Encrypt" method="post">
         
             <h3>Plaintext</h3>
-            <textarea id="plain" runat="server" cols="80" rows="20"></textarea>
+            <textarea asp-for="Plaintext" cols="80" rows="20"></textarea>
             <br/>
             <br/>
 
             <h3>Key</h3>
-            <textarea id="cipherkey" runat="server" cols="80" rows="1" placeholder="ABCDEFGHIJKLMNOPQRSTUVWXYZ_"></textarea>
+            <textarea asp-for="Key" cols="80" rows="1" placeholder="ABCDEFGHIJKLMNOPQRSTUVWXYZ_"></textarea>
             <br/>
             <br/>
 
-<!---->
-            <div id="errorDiv" style="display:none;" runat="server">
-                <div class="alert alert-danger" role="alert">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Invalid Key!
-                </div>
-                <br/>
-                <br/>
-            </div>
-
-            <button ID="EncryptButton" runat="server" class="btn btn-primary">Encrypt</button>
+            <button ID="EncryptButton" class="btn btn-primary">Encrypt</button>
             <br/>
             <br/>
-
-            <h3>Ciphertext</h3>
-            <textarea id="cipher" runat="server" cols="80" rows="20"></textarea>
 
         </form>
+
+        <h3>Ciphertext</h3>
+
+        <textarea asp-for="Ciphertext" cols="80" rows="20"></textarea>
+
     </div>
 </div>
