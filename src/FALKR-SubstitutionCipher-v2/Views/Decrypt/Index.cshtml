@@ -6,21 +6,20 @@
     <div class='col-md-12 '> <!-- col-md-offset-1 // if u want them both alined-->
         <header>
             <h1>Decryption</h1>
-            <hr/> 
         </header>
     </div>
 </div>
 
 <div class='row'>
     <div class='col-md-10 col-md-offset-1'>
-        <form>   <!--style="padding-left: 2cm; padding-bottom: 2cm;"-->
+        <form>
 
             <h3>Ciphertext</h3>
             <textarea id="cipher" runat="server" cols="80" rows="20"></textarea>
             <br/>
             <br/>
 
-            <button ID="decryptButton" OnClick="DecryptButton_Click" runat="server" class="btn btn-primary">Decrypt</button>
+            <button ID="decryptButton" OnClick="DecryptButton_Click" runat="server" class="btn btn-custom">Decrypt</button>
             <br/>
             <br/>
 
@@ -35,8 +34,10 @@
             <br/>
 
             <h3>Manual Swapping</h3>
+            <!--should be in labels or p tags-->
             Swap <input id="char1" runat="server" /> With <input id="char2" runat="server" />
-            <button id="swapButton" OnClick="SwapButton_Click" runat="server" class="btn btn-primary">Swap</button>
+            <!--btn-sm-->
+            <button id="swapButton" OnClick="SwapButton_Click" runat="server" class="btn btn-custom  btn-sm">Swap</button>
             <br/>
 
             <div id="errorDiv" style="display:none;" runat="server">
