@@ -53,12 +53,12 @@ namespace FALKR_SubstitutionCipher_v2.Controllers
 
                 model.Ciphertext = sb.ToString();
 
-                //TODO: push to view
+                return View("Index", model);
 
             }
 
-            // If we got this far, something failed; redisplay form.
-            return View(model);
+            return View("Index");
+
         }
 
     }
