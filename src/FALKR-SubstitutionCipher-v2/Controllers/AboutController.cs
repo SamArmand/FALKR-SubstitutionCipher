@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace FALKR_SubstitutionCipher_v2.Controllers
+namespace FALKR_SubstitutionCipher.Controllers
 {
     public class AboutController : Controller
     {

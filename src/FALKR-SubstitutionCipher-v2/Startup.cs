@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace FALKR_SubstitutionCipher_v2
+namespace FALKR_SubstitutionCipher
 {
     public class Startup
     {

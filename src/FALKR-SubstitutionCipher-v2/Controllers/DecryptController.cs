@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FALKR_SubstitutionCipher_v2.Controllers
+namespace FALKR_SubstitutionCipher.Controllers
 {
     public class DecryptController : Controller
     {

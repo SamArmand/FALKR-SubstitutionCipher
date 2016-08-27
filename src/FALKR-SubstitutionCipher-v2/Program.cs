@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace FALKR_SubstitutionCipher_v2
+namespace FALKR_SubstitutionCipher
 {
     public class Program
     {
