@@ -12,42 +12,39 @@
 
 <div class='row'>
     <div class='col-md-10 col-md-offset-1'>
-        <form>
+        
+        @model DecryptModel
+        <form asp-controller="Decrypt" asp-action="Decrypt" method="post">
 
             <h3>Ciphertext</h3>
-            <textarea id="cipher" runat="server" cols="80" rows="20"></textarea>
+            <textarea asp-for="Ciphertext" cols="80" rows="20"></textarea>
             <br/>
             <br/>
 
-            <button ID="decryptButton" OnClick="DecryptButton_Click" runat="server" class="btn btn-custom">Decrypt</button>
+            <button class="btn btn-custom">Decrypt</button>
             <br/>
             <br/>
+
+        </form>
 
             <h3>Key</h3>
-            <textarea id="cipherkey" runat="server" cols="80" rows="1"></textarea>
+            <textarea asp-for="Key" cols="80" rows="1"></textarea>
             <br/>
             <br/>
 
             <h3>Plaintext</h3>
-            <textarea id="plain" runat="server" cols="80" rows="20"></textarea>
+            <textarea asp-for="Plaintext" cols="80" rows="20"></textarea>
             <br/>
             <br/>
+
+        <form form asp-controller="Decrypt" asp-action="SwapCharacters" method="post">
 
             <h3>Manual Swapping</h3>
             <!--should be in labels or p tags-->
-            Swap <input id="char1" runat="server" /> With <input id="char2" runat="server" />
+            Swap <input asp-for="From" /> With <input asp-for="To" />
             <!--btn-sm-->
-            <button id="swapButton" OnClick="SwapButton_Click" runat="server" class="btn btn-custom  btn-sm">Swap</button>
+            <button class="btn btn-custom  btn-sm">Swap</button>
             <br/>
-
-            <div id="errorDiv" style="display:none;" runat="server">
-                <div class="alert alert-danger" role="alert">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Invalid Key or Swap Characters!
-                </div>
-                <br/>
-            </div>
 
         </form>
     </div>

@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FALKR_SubstitutionCipher_v2.Controllers
@@ -272,12 +275,33 @@ namespace FALKR_SubstitutionCipher_v2.Controllers
                 //Step13
             }
 
-            cipherkey.Value = string.Concat(_k);
-            plain.Value = DecryptWithKey(_k).Substring(0, originalLength);
+            model.Key = string.Concat(_k);
+            model.Plaintext = DecryptWithKey(_k).Substring(0, originalLength);
+
+            return View("Index", model);
 
         }
 
-                private char[] CipherCharactersByFrequency()
+        private int[] GenerateCipherCharacterCountArray()
+        {
+
+            var characterCountArray = new int[27];
+
+            for (var i = 0; i < _ciphertext.Length; i++)
+            {
+                if (_ciphertext.ElementAt(i) == ' ')
+                    characterCountArray[26]++;
+                else
+                {
+                    if (_ciphertext.ElementAt(i) >= 65 && _ciphertext.ElementAt(i) <= 90)
+                        characterCountArray[_ciphertext.ElementAt(i) - 65]++;
+                }
+            }
+
+            return characterCountArray;
+        }
+
+        private char[] CipherCharactersByFrequency()
         {
 
             var temp = new int[_cipherCharacterCountArray.GetLength(0)];
@@ -314,7 +338,7 @@ namespace FALKR_SubstitutionCipher_v2.Controllers
 
             var e = new int[27, 27];
 
-            var file = System.IO.File.ReadAllText(Server.MapPath("~/Digram.txt"));
+            var file = System.IO.File.ReadAllText("Digram.txt");
 
             var delimiters = new[] { '\n', '\t', '\r' };
 
@@ -537,7 +561,7 @@ namespace FALKR_SubstitutionCipher_v2.Controllers
 
             var e = new int[27,27,27];
 
-            var file = System.IO.File.ReadAllText(Server.MapPath("~/Trigram.txt"));
+            var file = System.IO.File.ReadAllText("Trigram.txt");
 
             var delimiters = new[] { '\n', '\t', '\r' };
 
@@ -634,8 +658,6 @@ namespace FALKR_SubstitutionCipher_v2.Controllers
             return trigramD;
         }
 
-        protected void DecryptButton_Click(object sender, EventArgs e) => PerformDecryption();
-
         protected IActionResult SwapCharacters(DecryptModel model)
         {
 
@@ -643,46 +665,30 @@ namespace FALKR_SubstitutionCipher_v2.Controllers
 
             var s = model.Key;
 
-            if (s.Length != 27)
-            {
-                errorDiv.Style.Value = "display:inline";
-                return;
-            }
-
-            if (s.Where((t, i) => s.ElementAt(i) == '.').Any())
-            {
-                errorDiv.Style.Value = "display:inline";
-                return;
-            }
-
             var key = new char[27];
 
             for (var i = 0; i < key.Length; i++)
-                key[i] = cipherkey.Value.ElementAt(i);
+                key[i] = model.Ciphertext.ElementAt(i);
 
             var indexChar1 = -1;
             var indexChar2 = -1;
 
             for (var i = 0; i < _alphabet.Length; i++)
-                if (char1.Value.ElementAt(0) == _alphabet[i])
+                if (model.From.ElementAt(0) == _alphabet[i])
                     indexChar1 = i;
 
             for (var i = 0; i < _alphabet.Length; i++)
-                if (char2.Value.ElementAt(0) == _alphabet[i])
+                if (model.To.ElementAt(0) == _alphabet[i])
                     indexChar2 = i;
-
-            if (indexChar1 == -1 || indexChar2 == -1)
-            {
-                errorDiv.Style.Value = "display:inline";
-                return;
-            }
 
             var temp = key[indexChar1];
             key[indexChar1] = key[indexChar2];
             key[indexChar2] = temp;
 
-            cipherkey.Value = string.Concat(key);
-            plain.Value = DecryptWithKey(key);
+            model.Ciphertext = string.Concat(key);
+            model.Plaintext = DecryptWithKey(key);
+
+            return View("Index", model);
 
         }
 
