@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FALKR-SubstitutionCipher-v2", "src\FALKR-SubstitutionCipher-v2\FALKR-SubstitutionCipher-v2.xproj", "{FBAA6270-5A5A-44F1-BE26-D8C8D24C54A4}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FALKR-SubstitutionCipher", "src\FALKR-SubstitutionCipher\FALKR-SubstitutionCipher.xproj", "{FBAA6270-5A5A-44F1-BE26-D8C8D24C54A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
