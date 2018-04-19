@@ -10,14 +10,15 @@
     </div>
 </div>
 
+@model Models.Decrypt
 <div class='row'>
     <div class='col-md-10 col-md-offset-1'>
         
-        @model DecryptModel
+
         <form asp-controller="Decrypt" asp-action="Decrypt" method="post">
 
             <h3>Ciphertext</h3>
-            <textarea asp-for="Ciphertext" cols="80" rows="20"></textarea>
+            <textarea name="ciphertext" cols="80" rows="20"></textarea>
             <br/>
             <br/>
 
@@ -28,12 +29,12 @@
         </form>
 
             <h3>Key</h3>
-            <textarea asp-for="Key" cols="80" rows="1"></textarea>
+            <textarea name="key" cols="80" rows="1"></textarea>
             <br/>
             <br/>
 
             <h3>Plaintext</h3>
-            <textarea asp-for="Plaintext" cols="80" rows="20"></textarea>
+            <textarea name="plaintext" cols="80" rows="20"></textarea>
             <br/>
             <br/>
 
@@ -41,10 +42,12 @@
 
             <h3>Manual Swapping</h3>
             <!--should be in labels or p tags-->
-            Swap <input asp-for="From" /> With <input asp-for="To" />
+            Swap <input name="From" /> With <input name="To" />
             <!--btn-sm-->
+            
             <button class="btn btn-custom btn-sm">Swap</button>
             <br/>
+            
 
         </form>
     </div>

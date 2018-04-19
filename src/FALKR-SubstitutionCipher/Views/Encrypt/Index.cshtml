@@ -13,16 +13,16 @@
 <div class='row'>
     <div class='col-md-10 col-md-offset-1'>
         
-        @model EncryptModel
+        @model Encrypt
         <form asp-controller="Encrypt" asp-action="Encrypt" method="post">
         
             <h3>Plaintext</h3>
-            <textarea asp-for="Plaintext" cols="80" rows="20"></textarea>
+            <textarea name="plaintext" cols="80" rows="20"></textarea>
             <br/>
             <br/>
 
             <h3>Key</h3>
-            <textarea asp-for="Key" cols="80" rows="1" placeholder="ABCDEFGHIJKLMNOPQRSTUVWXYZ_"></textarea>
+            <textarea name="key" cols="80" rows="1" placeholder="ABCDEFGHIJKLMNOPQRSTUVWXYZ_"></textarea>
             <br/>
             <br/>
 

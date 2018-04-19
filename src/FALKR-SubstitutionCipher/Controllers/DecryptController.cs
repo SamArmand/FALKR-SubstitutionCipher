@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Text;
+using FALKR_SubstitutionCipher.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FALKR_SubstitutionCipher.Controllers
@@ -43,7 +44,7 @@ namespace FALKR_SubstitutionCipher.Controllers
             return View();
         }
 
-        public IActionResult Decrypt(DecryptModel model)
+        public IActionResult Decrypt(Decrypt model)
         {
            
             if (!ModelState.IsValid)
@@ -277,6 +278,8 @@ namespace FALKR_SubstitutionCipher.Controllers
 
             model.Key = string.Concat(_k);
             model.Plaintext = DecryptWithKey(_k).Substring(0, originalLength);
+
+            TempData["Ciphertext"] = model.Ciphertext;
 
             return View("Index", model);
 
@@ -658,10 +661,13 @@ namespace FALKR_SubstitutionCipher.Controllers
             return trigramD;
         }
 
-        protected IActionResult SwapCharacters(DecryptModel model)
+        public IActionResult SwapCharacters(Decrypt model)
         {
 
-            _ciphertext = model.Ciphertext;
+             _ciphertext = (string)TempData["Ciphertext"];
+
+            if (_ciphertext == "" || model.From == "" || model.To == "")
+                return View("Index");
 
             var s = model.Key;
 

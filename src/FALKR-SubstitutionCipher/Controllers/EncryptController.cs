@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using FALKR_SubstitutionCipher.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FALKR_SubstitutionCipher.Controllers
@@ -25,7 +26,7 @@ namespace FALKR_SubstitutionCipher.Controllers
         }
 
         [HttpPost]
-        public IActionResult Encrypt(EncryptModel model)
+        public IActionResult Encrypt(Encrypt model)
         {
             if (ModelState.IsValid)
             {
